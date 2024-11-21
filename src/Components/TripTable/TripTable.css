@@ -1,0 +1,22 @@
+body {
+    background-color: #ebeef3;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    padding: 10px;
+    border-radius: 30px;
+  
+    width: calc(100%);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  body {
+    background-color: #ebeef3;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
