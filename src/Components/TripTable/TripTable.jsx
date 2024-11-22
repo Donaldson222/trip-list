@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { FaEdit } from "react-icons/fa";
 import "./TripTable.css";
+import { CgTrack } from "react-icons/cg"; 
 const data = [
   {
     consigncode: "123",
@@ -46,8 +47,8 @@ const TripTable = () => {
   return (
     <div>
       <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
+        <Table id="trip-table">
+          <TableHead className="table-header">
             <TableRow>
               <TableCell>Consign Code</TableCell>
               <TableCell>Vehicle/Driver</TableCell>
@@ -81,38 +82,51 @@ const TripTable = () => {
                   </div>
                 </TableCell>
                 <TableCell>{val.vehicledriver}</TableCell>
-                <TableCell>{val.status}</TableCell>
+                <TableCell>{val.status}
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "5px" }}>
+                
+    <CgTrack style={{ cursor: "pointer", color:"green", }} />
+    <span style={{ cursor: "pointer", fontSize: "1.0em", color: "green", }}>Track</span>
+  </div>
+                </TableCell>
                 <TableCell>{val.consignor}</TableCell>
                 <TableCell>{val.consignee}</TableCell>
 
                 <TableCell style={{ position: "relative" }}>
-                  <div
-                    style={{
-                      display: hoveredIndex === index ? "none" : "block",
-                      whiteSpace: "nowrap",
-                      position: "relative",
-                    }}
-                  >
-                  {val.carbonfootprint}
-                  </div>
+                <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      position: "relative",
+    }}
+  >
+    
+    <span
+      style={{
+        display: hoveredIndex === index ? "none" : "block",
+      }}
+    >
+      {val.carbonfootprint}
+    </span>
+
+    
+    {hoveredIndex === index && (
+      <Button
+        id="edit-button"
+        style={{
+          minWidth: "auto",
+          marginLeft: "10px",
+          padding: "5px",
+        }}
+      >
+        <FaEdit />
+      </Button>
+    )}
+  </div>
+                  
                 </TableCell>
-                <TableCell style={{ position: "relative" }}>
-                  <div
-                    style={{
-                      position: "absolute",
-                      right: 0,
-                      display: hoveredIndex === index ? "flex" : "none",
-                      gap: "5px",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                      height: "20%",
-                    }}
-                  >
-                    <Button id="edit-button" style={{ minWidth: "auto" }}>
-                      <FaEdit />
-                    </Button>
-                  </div>
-                </TableCell>
+               
               </TableRow>
             ))}
           </TableBody>
