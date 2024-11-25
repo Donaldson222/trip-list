@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import TripTable from "./Components/TripTable/TripTable";
 import Buttons from "./Components/Buttons/Buttons";
 
+
 function App() {
   return (
     <div className="App">

@@ -48,18 +48,9 @@ const data = [
 let totalData = data.length;
 
 function Buttons() {
-  const [activeButton, setActiveButton] = useState("assigned");
-
   const [filterCriteria, setFilterCriteria] = useState("");
   const [filteredData, setFilteredData] = useState(data);
   const [showFilter, setShowFilter] = useState(false);
-
-  const handleButtonClick = (buttonName) => {
-    setActiveButton(buttonName);
-  };
-
-  const [importedData, setImportedData] = useState([]);
-  const fileInputRef = useRef(null);
 
   const handleFilter = (e) => {
     const criteria = e.target.value;
@@ -75,8 +66,10 @@ function Buttons() {
   };
 
   const handleExport = () => {
-    const csvData = importedData
-      .map((item) => `${item.id},${item.name}`)
+    const csvData = data
+      .map((item) =>
+        `${item.consigncode},${item.priority},${item.vehicledriver}`
+      )
       .join("\n");
     const blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -90,47 +83,43 @@ function Buttons() {
   };
 
   return (
-    <>
-     <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "4px", overflow: "hidden"}}>
-       <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: "10px",
-      }}
-    >
- <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-        <Tooltip title="Export">
-          <Button id="export" onClick={handleExport}>
-            <CiExport />
-          </Button>
-        </Tooltip>
-        <div id="filter">
+    <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "4px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "10px",
+        }}
+      >
+        {/* Left-aligned Trip Counter */}
+        <Typography
+          component="h2"
+          style={{
+            fontSize: "24px",
+            fontWeight: "none",
+            margin: "0",
+          }}
+        >
+          {totalData} Trips
+        </Typography>
+
+        {/* Right-aligned Buttons */}
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <Tooltip title="Export">
+            <Button id="export" onClick={handleExport}>
+              <CiExport />
+            </Button>
+          </Tooltip>
           {showFilter && (
             <TextField
               label="Filter Consignment Items"
               variant="outlined"
               value={filterCriteria}
               onChange={handleFilter}
-              style={{
-                position: "absolute",
-                bottom: "40%",
-                width: "200px",
-                marginBottom: "10px",
-              }}
+              style={{ width: "200px" }}
             />
           )}
-        </div>
-        {/* {filteredData.map((item) => (
-        <div key={item.consigncode}>
-          <p>{item.consigncode} - {item.vehicledriver} - {item.priority}</p>
-        </div>
-      ))} */}
-        <div
-          id="filter-button"
-          style={{ position: "relative", boxShadow: "none" }}
-        >
           <Tooltip title="Filter">
             <Button
               id="filter"
@@ -140,26 +129,9 @@ function Buttons() {
               <CiFilter />
             </Button>
           </Tooltip>
-          
-          </div>
-        </div>
-        <div
-      style={{
-        display: "flex",
-        
-        
-      }}
-    >
-        <Typography
-          component="h2"
-          style={{ fontSize: "24px", marginTop: "20px", marginBottom: "20px" }}
-        >
-          {totalData} Trips
-        </Typography>
         </div>
       </div>
-      </div>
-    </>
+    </div>
   );
 }
 export default Buttons;

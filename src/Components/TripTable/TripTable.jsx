@@ -13,6 +13,7 @@ import {
 import { FaEdit } from "react-icons/fa";
 import "./TripTable.css";
 import { CgTrack } from "react-icons/cg"; 
+
 const data = [
   {
     consigncode: "123",
