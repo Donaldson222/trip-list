@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+
 import './Navbar.css';
 
 const navData = [{ title: "", imgSrc: process.env.PUBLIC_URL + "/trackrright-logo.png" }];

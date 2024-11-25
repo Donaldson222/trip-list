@@ -1,17 +1,17 @@
-import { CiImport } from "react-icons/ci";
+
 import { CiExport } from "react-icons/ci";
-import { CgSortAz } from "react-icons/cg";
+
 import { CiFilter } from "react-icons/ci";
 import {
   Button,
-  ButtonGroup,
+  
   Typography,
   Tooltip,
   TextField,
 } from "@mui/material";
 import "./Buttons.css";
 import React, { useState, useRef} from "react";
-import FilterList from "@mui/icons-material/FilterList";
+
 
 const data = [
   {
@@ -92,7 +92,7 @@ function Buttons() {
           marginBottom: "10px",
         }}
       >
-        {/* Left-aligned Trip Counter */}
+      
         <Typography
           component="h2"
           style={{
@@ -104,7 +104,7 @@ function Buttons() {
           {totalData} Trips
         </Typography>
 
-        {/* Right-aligned Buttons */}
+      
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
           <Tooltip title="Export">
             <Button id="export" onClick={handleExport}>
