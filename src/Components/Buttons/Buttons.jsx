@@ -4,13 +4,12 @@ import { CiExport } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
 import {
   Button,
-  
   Typography,
   Tooltip,
   TextField,
 } from "@mui/material";
 import "./Buttons.css";
-import React, { useState, useRef} from "react";
+import React, { useState} from "react";
 
 
 const data = [
@@ -49,7 +48,7 @@ let totalData = data.length;
 
 function Buttons() {
   const [filterCriteria, setFilterCriteria] = useState("");
-  const [filteredData, setFilteredData] = useState(data);
+  const [setFilteredData] = useState(data);
   const [showFilter, setShowFilter] = useState(false);
 
   const handleFilter = (e) => {
