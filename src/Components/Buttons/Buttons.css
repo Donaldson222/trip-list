@@ -5,8 +5,8 @@
   border: none;
   cursor: pointer;
   border-radius: 50%;
-  width: 50px; /* Equal height and width make them circular */
-  height: 50px;
+  width: 20px; 
+  height: 20px;
   display: flex;
   justify-content: center; /* Centers the icon inside the button */
   align-items: center; /* Centers the icon inside the button */
@@ -16,5 +16,6 @@
 
 #filter:hover,
 #export:hover {
-  background-color: #d3eed3; /* Optional hover color */
+  background-color: #061C06; 
+  color:white;
 }

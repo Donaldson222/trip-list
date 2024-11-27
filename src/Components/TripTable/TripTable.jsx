@@ -84,7 +84,7 @@ const TripTable = () => {
                 </TableCell>
                 <TableCell>{val.vehicledriver}</TableCell>
                 <TableCell>{val.status}
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "5px" }}>
+                <div id="track-element">
                 
     <CgTrack style={{ cursor: "pointer", color:"green", }} />
     <span style={{ cursor: "pointer", fontSize: "1.0em", color: "green", }}>Track</span>

@@ -106,7 +106,10 @@ function Buttons() {
       
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
           <Tooltip title="Export">
-            <Button id="export" onClick={handleExport}>
+            <Button id="export" 
+            onClick={handleExport}
+            size="small"
+            >
               <CiExport />
             </Button>
           </Tooltip>

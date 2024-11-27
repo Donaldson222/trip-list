@@ -27,3 +27,8 @@ body {
     background-color: #c6c6c6; 
    
   }
+  .track-element{
+    display: flex;
+    justify-content: center;
+    
+  }
